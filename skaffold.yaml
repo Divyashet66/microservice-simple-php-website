@@ -1,0 +1,12 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: staging-prod-deploy
+profiles:
+  - name: staging
+    deploy:
+      kubeContext: gke_tech-rnd-project_us-central1-a_composer
+      kubectl:
+        manifests:
+          - deployment.yaml
+          - service.yaml
